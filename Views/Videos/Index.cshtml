@@ -1,0 +1,29 @@
+﻿@using u21687545_HWA03.Models
+@Model List <FilesModel>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+
+    @foreach (var Videos in Model)
+    {
+        <div class="col-md-8">
+            <video height="500" controls="controls" autoplay>
+                <source src="~/Gallery/Videos/@Videos.FileName/" type="video/mp4" />
+            </video>
+            <p>@Videos.FileName</p>
+            <button type="button" class="btn btn-success">
+                @Html.ActionLink("Download", "DownloadFile", new { fileName = Videos.FileName })
+            </button>
+
+
+            <button type="button" class="btn btn-danger">
+                @Html.ActionLink("DELETE", "DeleteFile",
+                new { fileName = Videos.FileName },
+                new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+            </button>
+
+        </div>
+    }
+
+

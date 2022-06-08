@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Busisiwe</h2>
+<div class="jumbotron">
+    <div cass="row">
+        <div class="col-md-8">
+            <h2>Bio</h2>
+            <p>
+               My Name is Busisiwe Mokoena, a second year student studying Bcom Informatics at the University of Pretoria. 
+            </p>
+            <p>
+                My main interests include a good day of retail therapy and playing netball. I also enjoy spending time with those closest to me such as my friends, family, netball teammates and study partners because I don't suffer alone academically when I am with them.
+            </p>
+            <p>
+                One can say that I am a very social person however I also enjoy my own space.
+                I am also open to meeting new people and experiencing new experiences.
+            </p>
+        </div>
+        @ViewBag.Status
+        <div class="col-md-4">
+            <h2>Busisiwe</h2>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        <form>
+            @foreach (var Images in Model)
+            {
+                    <img src="~/Gallery/myPicture/@Images.FileName" style="height:300px" />
+            }
+        </form>
+            }
+
+
+        </div>
+    </div>
+</div>
+

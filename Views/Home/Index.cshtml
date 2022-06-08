@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<h2>myMedia</h2>
+
+<div class="jumbotron">
+    <div cass="row">
+        <div class="col-md-8">
+            <h2>Description</h2>
+            <p>
+                MyMedia system allows the user to choose whether they want to upload files, images or videos.
+            </p>
+            <p>
+                Have fun with the system and enjoy while it lasts......Sike!!
+            </p>
+        </div>
+        @ViewBag.Status
+        <div class="col-md-4">
+            <h2>Option Selection</h2>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+             {
+                
+                    <label>Documents</label>
+                    <input type="radio" name="btnSelection" value="Document"/><br />
+
+                    <label>Images</label>
+                    <input type="radio" name="btnSelection" value="Image"/><br />
+
+                    <label>Videos</label>
+                    <input type="radio" name="btnSelection" value="Videos"/><br />
+
+                    <input type="file" name="file" id="file"/><br />
+
+                    <button type="submit">Submit</button>
+                
+             }
+        </div>
+    </div>
+</div>
+
